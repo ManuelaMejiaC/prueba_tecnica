@@ -1,0 +1,67 @@
+.container{
+  width: 360px;
+  padding: 0 24px;
+  box-sizing: content-box;
+  position: relative;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.row-g-3{
+  position: static;
+}
+
+.card-title{
+  font-style: bold;
+  text-align: center;
+  font-size:large;
+}
+
+.form-control {
+  width: 330px;
+  padding: 6px 12px;
+  box-sizing:border-box;
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.btn-dark{
+  margin-top: 10px;
+  margin-left: 40px;
+  width: 250px;
+  position: relative;
+}
+
+.table{
+  width: 100%
+}
+
+.logo1{
+  width: 35px;
+}
+
+.logo2{
+  width: 25px;
+}
+
+.img{
+  font-style: bold;
+  align-items: center;
+}
+.table-dark{
+  text-align: center;
+}
+tbody{
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .container {
+      display: relative;
+  }
+  .card-body{
+    width: 100%;
+  }
+
+
+}
