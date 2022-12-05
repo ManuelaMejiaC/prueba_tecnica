@@ -1,67 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <title>Empleados Universidad de Manizales</title>
-</head>
-<body>
-  <nav class="navbar bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-      <img class="logo1" src="./assets/um.png" alt="#"><span class="navbar-brand mb- h1">Empleados Universidad de Manizales</span></a>
-      <form class="d-flex" role="search">
-        <input class="form-control me-1 mb-0" type="search" placeholder="Buscar empleado" aria-label="Buscar" [(ngModel)]="empleadoBuscado">
-        <button class="btn btn-light" type="submit" (click)="buscarEmpleado()"> <img src="./assets/search.svg" alt=""> </button>
-      </form>
-    </div>
-  </nav>
-  <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <title>Empleados Universidad de Manizales</title>
+  </head>
+  <body>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img class="logo1" src="./assets/um.png" alt="#" /><span
+            class="navbar-brand mb- h1"
+            >Empleados Universidad de Manizales</span
+          ></a
+        >
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-1 mb-0"
+            type="text"
+            placeholder="Buscar empleado"
+            [(ngModel)]="search"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <button class="btn btn-light" type="submit" (click)="searchInput()">
+            <img src="./assets/search.svg" alt="" />
+          </button>
+        </form>
+      </div>
+    </nav>
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="card ml-5 mb-3">
             <div class="card-body">
-              <div class="card-title"><img class="logo2" src="./assets/person-add.svg" alt="#">NUEVO EMPLEADO</div>
-            <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Ingrese nombre" required [(ngModel)]="nuevoEmpleado.nombre"/>
+              <div class="card-title">
+                <img class="logo2" src="./assets/person-add.svg" alt="#" />NUEVO
+                EMPLEADO
+              </div>
+              <form [formGroup]="form">
+                <div class="form-group col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Ingrese nombre"
+                    formControlName="nombre"
+                  />
+                </div>
+                <!-- <div class="errors" *ngIf="form.errors?.['nombre']">
+                  <span>Nombre invalido!!</span>
+                </div> -->
+                <div class="form-group col-md-4">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Ingrese edad"
+                    formControlName="edad"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Lenguajes de programación"
+                    formControlName="lenguajes_programacion"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Años de experiencia"
+                    formControlName="anios_experiencia"
+                  />
+                </div>
+                <button class="btn btn-dark" (click)="crearEmpleado()">
+                  Añadir empleado
+                </button>
+              </form>
             </div>
-            <div class="form-group col-md-4">
-              <input type="number" class="form-control" placeholder="Ingrese edad" required [(ngModel)]="nuevoEmpleado.edad"/>
-            </div>
-            <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Lenguajes de programación" required [(ngModel)]="nuevoEmpleado.lenguajes_programacion"/>
-            </div>
-            <div class="form-group col-md-4">
-              <input type="text" class="form-control" placeholder="Años de experiencia" required [(ngModel)]="nuevoEmpleado.anios_experiencia"/>
-            </div>
-              <button class="btn btn-dark"(click)="crearEmpleado()">Añadir empleado</button>
-            </div>
-        </div>
+          </div>
         </div>
       </div>
-  </div>
-  <table class="table table-striped">
-    <thead>
-    <tr class="table-dark">
-      <th scope="col">ID Empleado</th>
-      <th scope="col">Nombre Completo</th>
-      <th scope="col">Edad</th>
-      <th scope="col">Lenguajes de Programación</th>
-      <th scope="col">Años de experiencia</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let usuario of usuarios">
-      <td scope="row">{{usuario.id}}</td>
-      <td>{{usuario.nombre}}</td>
-      <td>{{usuario.edad}}</td>
-      <td>{{usuario.lenguajes_programacion}}</td>
-      <td>{{usuario.anios_experiencia}}</td>
-    </tr>
-  </tbody>
-  </table>
-</body>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">ID Empleado</th>
+          <th scope="col">Nombre Completo</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Lenguajes de Programación</th>
+          <th scope="col">Años de experiencia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; let i = index">
+          <td scope="row">{{ usuario.id }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.edad }}</td>
+          <td>{{ usuario.lenguajes_programacion }}</td>
+          <td>{{ usuario.anios_experiencia }}</td>
+          <td class="actions">
+            <button class="action edit">Editar</button>
+            <button class="action delete" (click)="deleteElement(usuario, i)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>

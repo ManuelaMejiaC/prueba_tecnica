@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 360px;
   padding: 0 24px;
   box-sizing: content-box;
@@ -7,61 +7,65 @@
   margin-top: 10px;
 }
 
-.row-g-3{
+.row-g-3 {
   position: static;
 }
 
-.card-title{
+.card-title {
   font-style: bold;
   text-align: center;
-  font-size:large;
+  font-size: large;
 }
 
 .form-control {
   width: 330px;
   padding: 6px 12px;
-  box-sizing:border-box;
+  box-sizing: border-box;
   position: relative;
   margin-bottom: 10px;
   text-align: center;
 }
 
-.btn-dark{
+.btn-dark {
   margin-top: 10px;
   margin-left: 40px;
   width: 250px;
   position: relative;
 }
 
-.table{
-  width: 100%
+.table {
+  width: 100%;
 }
 
-.logo1{
+.logo1 {
   width: 35px;
 }
 
-.logo2{
+.logo2 {
   width: 25px;
 }
 
-.img{
+.img {
   font-style: bold;
   align-items: center;
 }
-.table-dark{
+.table-dark {
   text-align: center;
 }
-tbody{
+tbody {
   text-align: center;
 }
 @media (max-width: 640px) {
   .container {
-      display: relative;
+    display: relative;
   }
-  .card-body{
+  .card-body {
     width: 100%;
   }
+}
 
-
+.actions .action {
+  border: none;
+  border-radius: 10px;
+  margin-right: 5px;
 }

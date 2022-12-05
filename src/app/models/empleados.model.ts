@@ -1,7 +1,7 @@
-export class Empleados{
-  id: number = 0;
-  nombre: string | undefined;
-  edad: number = 0 ;
-  lenguajes_programacion: string[] | undefined;
-  anios_experiencia: number | undefined;
+export class Empleados {
+  id: number | null = 0;
+  nombre: string | null = '';
+  edad: string | null = '';
+  lenguajes_programacion: string[] | null = [];
+  anios_experiencia: string | null = '';
 }
